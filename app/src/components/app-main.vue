@@ -35,32 +35,28 @@
 
         <div class="message-container -error" v-if="state.requestBugTracking">
           <div class="message">
-            An error occurred.
-            Please help us fixing it by allowing to send the details to us.
-            This option is also available in the settings. Thanks!
-            <u @click="doAllow(true)">Allow</u> | <u @click="doAllow(false)">Deny</u>
+            エラーが発生しました。
           </div>
         </div>
 
         <div class="message-container -error" v-else-if="state.error">
-          <div class="message">{{ state.error }} <u @click="doReload">Reload page</u></div>
+          <div class="message"><u @click="doReload">再読み込みする</u></div>
         </div>
 
         <div class="message-container" v-else-if="state.upgrade">
           <div class="message">
-            A new version of this web app has been downloaded.
-            <u @click="doReload">Reload page</u>
+            <u @click="doReload">再読み込みする</u>
           </div>
         </div>
 
         <div class="message-container" v-else-if="!hasPeers && mode !== 'share'">
-          <div class="message" v-html="l.share.message"></div>
+          <div class="message" v-html="l.share.message" v-if="false"></div>
         </div>
 
       </div>
 
       <div class="tools hstack">
-        <sea-link @action="doTogglePanel('settings')" class="tool" :class="{'-active': mode === 'settings'}">
+        <sea-link v-if="false" @action="doTogglePanel('settings')" class="tool" :class="{'-active': mode === 'settings'}">
           <!--        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>-->
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -129,7 +125,7 @@
                 d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
           </svg>
         </sea-link>
-        <sea-link @action="doTogglePanel('share')" class="tool" :class="{'-active': mode === 'share'}">
+        <sea-link v-if="false" @action="doTogglePanel('share')" class="tool" :class="{'-active': mode === 'share'}">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
@@ -278,7 +274,7 @@ export default {
   async mounted() {
     this.conn = await setup()
     if (!this.hasPeers) {
-      this.mode = 'share'
+      this.mode = ''
     }
     this.fullscreenHandler = ev => {
       this.isFullScreen = !!document.fullscreenElement
