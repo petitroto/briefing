@@ -24,7 +24,7 @@ export function setupBugTracker(done) {
 let collectedErrors = []
 
 export function isAllowedBugTracking() {
-  return localStorage.allowSentry === '1'
+  return false
 }
 
 export function setAllowedBugTracking(allowed = true, reloadMessage = 'Reload to activate changes') {
