@@ -34,18 +34,21 @@
         />
 
         <div class="message-container -error" v-if="state.requestBugTracking">
-          <div class="message">
+          <div class="message" v-if="false">
             エラーが発生しました。
           </div>
         </div>
 
         <div class="message-container -error" v-else-if="state.error">
-          <div class="message"><u @click="doReload">再読み込みする</u></div>
+          <div class="message">
+            <u @click="doReload">再読み込みしてください</u>
+          </div>
         </div>
 
         <div class="message-container" v-else-if="state.upgrade">
           <div class="message">
-            <u @click="doReload">再読み込みする</u>
+            画面の更新が必要です。
+            <u @click="doReload">ここをクリックして更新する</u>
           </div>
         </div>
 
