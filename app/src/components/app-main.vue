@@ -213,7 +213,8 @@ export default {
       messages.emit('updateStream')
     },
     doQuit() {
-      if (confirm('Really quit this session?')) {
+      if (confirm('このビデオチャットを終了しますか?')) {
+        window.close()
         location.assign('/ng/')
       }
     },
